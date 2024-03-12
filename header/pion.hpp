@@ -5,13 +5,12 @@
 
     class Pion : public Piece {
 
-        using Piece::Piece;
-
-        private:
+        protected:
             const char icon_w = 'O';
-            const char icon_b = 'o';
+            const char icon_b = 'e';
 
         public:
+            using Piece::Piece;
             Pion(int player) noexcept;
 
     };

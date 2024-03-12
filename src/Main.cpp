@@ -9,7 +9,7 @@ int main() {
 
     string str1 = "Hello";
 
-    Pion p{1};
+    Pion p{0};
     p.AfficherConsole();
 
     Grille g{};

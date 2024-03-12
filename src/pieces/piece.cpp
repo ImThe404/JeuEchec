@@ -12,6 +12,7 @@ using namespace std;
  * 
  * 
 */
+
 Piece::Piece(char icon, int player) noexcept : _player(player), _icon(icon) {
 }
 
