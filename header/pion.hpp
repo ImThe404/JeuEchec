@@ -8,11 +8,11 @@
         using Piece::Piece;
 
         private:
-            int _player;
+            const char icon_w = 'O';
+            const char icon_b = 'o';
 
         public:
             Pion(int player) noexcept;
-            int getPlayer() const;
 
     };
 

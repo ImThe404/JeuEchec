@@ -4,9 +4,5 @@
 
 using namespace std;
 
-Pion::Pion(int player) noexcept : Piece('0'), _player(player) {
-}
-
-int Pion::getPlayer() const {
-    return _player;
+Pion::Pion(int player) noexcept : Piece(icon_b, player) {
 }
