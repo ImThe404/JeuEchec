@@ -1,18 +1,18 @@
-#include <list>
-#include <iostream>
-
-using namespace std;
 
 #ifndef __GRILLE__
     #define __GRILLE__    
     #pragma once
+    #include <vector>
+    #include <iostream>
+    #include "piece.hpp"
 
+    using namespace std;
 
     class Grille {
     
         private:
-            int taille = 8;
-            list<int> grille;
+            int taille = 8;                 // la taille du plateau, 8 car un plateau d'echec est en 8x8
+            vector<vector<Piece>> grille;   // la grille qui va contenir les pieces
 
         public:
             Grille();

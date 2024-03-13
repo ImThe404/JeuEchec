@@ -16,8 +16,8 @@ using namespace std;
 Piece::Piece(char icon, int player) noexcept : _player(player), _icon(icon) {
 }
 
-void Piece::AfficherConsole() noexcept {
-    cout << _icon;
+char Piece::getIcon() const {
+    return _icon;
 }
 
 int Piece::getPlayer() const {
