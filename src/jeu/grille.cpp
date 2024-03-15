@@ -8,8 +8,9 @@
 #include "../../header/reine.hpp"
 #include "../../header/roi.hpp"
 
+#include "../../header/coordonne.hpp"
 #include <iostream>
-#include <string>
+#include <bits/stdc++.h> 
 
 using namespace std;
 
@@ -68,16 +69,58 @@ vector<Piece> Grille::InitLignePion(int player) {
     return ligne;
 }
 
+Coordonne Grille::GetCoord(string pos) {
+    Coordonne coord;
+    vector<char> letters = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'};
+    vector<char> numbers = {'1', '2', '3', '4', '5', '6', '7', '8'};
+    auto ita = find(letters.begin(), letters.end(), pos[0]); 
+    if (ita != letters.end()) { 
+        int index = ita - letters.begin(); 
+        coord.SetX(index);
+    } else { 
+        cout << "la postions donnee n'est pas correcte." << endl;
+    } 
+    auto itb = find(numbers.begin(), numbers.end(), pos[1]); 
+    if (itb != numbers.end()) { 
+        int index = itb - numbers.begin(); 
+        coord.SetY(index);
+    } else { 
+        cout << "la postions donnee n'est pas correcte." << endl;
+    } 
+    return coord;
+}
+
+string Grille::Ask(int nbQuestions) {
+    if ( nbQuestions == 0 ) {
+        cout << "Entrer la position de la piece a jouer" << endl;
+    } else if ( nbQuestions == 1 ) {
+        cout << "Entrer la nouvelle position de la piece" << endl;
+    }
+    string pos;
+    cin >> pos;
+    while ( pos.size() != 2 ) {
+            cout << "la positions n'est pas correcte !" << endl;
+            cin >> pos;
+        }
+    return pos;
+}
+
+void Grille::Move(Coordonne start, Coordonne end) {
+    Piece tmp = grille[end.GetY()][end.GetX()];
+    grille[end.GetY()][end.GetX()] = grille[start.GetY()][start.GetX()];
+    grille[start.GetY()][start.GetX()] = tmp;
+}
 
 
-/* va afficher en console les pieces du jeu
+/* va afficher en console les pieces du jeu sur un plateau d'echec
 */
 void Grille::AfficherConsole() {
     cout << "\n/  a b c d e f g h";
     for ( auto i = 0 ; i < grille.size() ; i++ ) {
-        cout << '\n' << i << ' '; 
+        cout << '\n' << i+1 << ' '; 
         for ( auto y = 0 ; y < grille[i].size() ; y++ ) {
             cout << ' ' << grille[i][y].getIcon();
         }   
     }   
+    cout << endl;
 }

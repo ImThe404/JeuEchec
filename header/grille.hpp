@@ -4,7 +4,9 @@
     #pragma once
     #include <vector>
     #include <iostream>
+    #include <string>
     #include "piece.hpp"
+    #include "coordonne.hpp"
 
     using namespace std;
 
@@ -19,6 +21,9 @@
         public:
             Grille();
             void AfficherConsole();
+            Coordonne GetCoord(string pos);
+            string Ask(int nbQuestions);
+            void Move(Coordonne start, Coordonne end);
     };
 
 
