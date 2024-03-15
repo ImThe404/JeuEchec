@@ -1,13 +1,13 @@
 
-#ifndef __PION__
-    #define __PION__   
+#ifndef __CHEVAL__
+    #define __CHEVAL__   
     #include "piece.hpp"
 
-    class Pion : public Piece {
+    class Cheval : public Piece {
 
         public:
             using Piece::Piece;         // Utilise la classe piece 
-            Pion(int player) noexcept; 
+            Cheval(int player) noexcept; 
     };
 
 
